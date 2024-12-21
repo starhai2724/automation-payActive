@@ -1,0 +1,27 @@
+[INFO] 21-12-2024 12:12:48 [main] [LogUtils] - Driver in TestContext: ChromeDriver: chrome on mac (4e55063fc73da75fc221b51f45192cca)
+[INFO] 21-12-2024 12:12:53 [main] [LogUtils] - Open URL: https://accountsstaging2019.mymonow.com/prelogin/login
+[INFO] 21-12-2024 12:12:53 [main] [LogUtils] - Set text: Employer_Darden1 on element By.id: user-name
+[INFO] 21-12-2024 12:12:53 [main] [LogUtils] - Set text: Tester567892 on element By.id: password
+[INFO] 21-12-2024 12:12:53 [main] [LogUtils] - Click element By.xpath: //*[@id="create-account-content-area"]/div[2]/div[6]/button
+[INFO] 21-12-2024 12:12:53 [main] [LogUtils] - Verify equals: PayActiv : Accounts and PayActiv : Accounts
+[INFO] 21-12-2024 12:13:10 [main] [LogUtils] - Click element By.xpath: //*[@id="sidebar-hide"]/div/div/nb-menu/ul/li[6]/a
+[INFO] 21-12-2024 12:13:10 [main] [LogUtils] - Click element By.xpath: //*[@id="sidebar-hide"]/div/div/nb-menu/ul/li[6]/ul/li[1]/a
+[INFO] 21-12-2024 12:13:10 [main] [LogUtils] - Verify equals: PayActivate and PayActivate
+[INFO] 21-12-2024 12:22:56 [main] [LogUtils] - Driver in TestContext: ChromeDriver: chrome on mac (9b4649dc7144b36c279b8ca0eab9e930)
+[INFO] 21-12-2024 12:23:28 [main] [LogUtils] - Open URL: https://accountsstaging2019.mymonow.com/prelogin/login
+[INFO] 21-12-2024 12:23:29 [main] [LogUtils] - Set text: Employer_Darden1 on element By.id: user-name
+[INFO] 21-12-2024 12:23:29 [main] [LogUtils] - Set text: Tester567892 on element By.id: password
+[INFO] 21-12-2024 12:23:29 [main] [LogUtils] - Click element By.xpath: //*[@id="create-account-content-area"]/div[2]/div[6]/button
+[INFO] 21-12-2024 12:23:29 [main] [LogUtils] - Verify equals: PayActiv : Accounts and PayActiv : Accounts
+[INFO] 21-12-2024 12:23:47 [main] [LogUtils] - Click element By.xpath: //*[@id="sidebar-hide"]/div/div/nb-menu/ul/li[6]/a
+[INFO] 21-12-2024 12:23:47 [main] [LogUtils] - Click element By.xpath: //*[@id="sidebar-hide"]/div/div/nb-menu/ul/li[6]/ul/li[1]/a
+[INFO] 21-12-2024 12:23:47 [main] [LogUtils] - Verify equals: PayActivate and PayActivate
+[ERROR] 21-12-2024 12:24:05 [main] [LogUtils] - Cannot load file properties.
+[ERROR] 21-12-2024 12:24:05 [main] [LogUtils] - Cannot load file properties.
+[INFO] 21-12-2024 12:25:04 [main] [LogUtils] - Driver in TestContext: ChromeDriver: chrome on mac (0b367af6f3c5c8f36d96afd4c56a2624)
+[INFO] 21-12-2024 12:25:42 [main] [LogUtils] - Open URL: https://accountsstaging2019.mymonow.com/prelogin/login
+[INFO] 21-12-2024 12:25:42 [main] [LogUtils] - Set text: Employer_Darden1 on element By.id: user-name
+[INFO] 21-12-2024 12:25:42 [main] [LogUtils] - Set text: Tester567892 on element By.id: password
+[INFO] 21-12-2024 12:25:42 [main] [LogUtils] - Click element By.xpath: //*[@id="create-account-content-area"]/div[2]/div[6]/button
+[INFO] 21-12-2024 12:25:42 [main] [LogUtils] - Verify equals: PayActiv : Accounts and PayActiv : Accounts
+[ERROR] 21-12-2024 12:26:12 [main] [LogUtils] - Timeout waiting for the element Visible. By.xpath: //*[@id="sidebar-hide"]/div/div/nb-menu/ul/li[6]/a
