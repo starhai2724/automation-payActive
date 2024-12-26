@@ -1,9 +1,13 @@
 package com.payactive.pages;
 
+import com.payactive.common.DataCommon;
+import com.payactive.constants.ConstantGlobal;
+import com.payactive.driver.DriverManager;
+import com.payactive.keywords.WebUI;
+import com.payactive.models.Credentials;
 import org.openqa.selenium.By;
 
-import static com.payactive.keywords.WebUI.clickElement;
-import static com.payactive.keywords.WebUI.setText;
+import static com.payactive.keywords.WebUI.*;
 
 public class LoginPage extends CommonPage {
 
@@ -18,6 +22,14 @@ public class LoginPage extends CommonPage {
 
     public void clickLoginButton() {
         clickElement(buttonLogin);
+    }
+
+    public void login() {
+        openURL(ConstantGlobal.URL);
+        Credentials credentials = DataCommon.credentialsList.getFirst();
+        setText(inputEmail, credentials.getUsername());
+        setText(inputPassword, credentials.getPassword());
+        clickLoginButton();
     }
 
 }

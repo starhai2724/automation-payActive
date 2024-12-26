@@ -1,10 +1,11 @@
 package com.payactive.pages;
 
+import com.payactive.driver.DriverManager;
 import com.payactive.keywords.WebUI;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 
-import static com.payactive.keywords.WebUI.setTextAndKey;
+import static com.payactive.keywords.WebUI.*;
 
 public class CommonPage {
     private By menuProducts = By.xpath("//span[normalize-space()='Products']");
@@ -15,13 +16,16 @@ public class CommonPage {
     private By inputSearch = By.xpath("//input[@id='search']");
     public By avatarProfile = By.xpath("//span[contains(@class,'avatar avatar-sm')]");
 
+    private final By cardDropdown = By.xpath("//*[@id=\"sidebar-hide\"]/div/div/nb-menu/ul/li[6]/a");
+
+    public final By spinnerLoading = By.xpath("//nb-spinner[contains(@class, 'size-medium') and contains(@class, 'status-basic')]//span[contains(@class, 'spin-circle')]");
 
     public void searchDataTable(String dataName) {
         setTextAndKey(inputSearch, dataName, Keys.ENTER);
     }
 
     public void clickEditButton() {
-        WebUI.clickElement(buttonEdit);
+        clickElement(buttonEdit);
     }
 
     public String getMessageNotify() {
@@ -29,7 +33,19 @@ public class CommonPage {
     }
 
     public void clickMenuProducts() {
-        WebUI.clickElement(menuProducts);
+        clickElement(menuProducts);
     }
 
+    public void clickCardDropdown() {
+        clickElement(cardDropdown);
+    }
+
+    public void userOnThePage(String title) {
+        verifyEquals(DriverManager.getDriver().getTitle(), title);
+    }
+
+    public void waitForSpinnerLoading() {
+        WebUI.waitForElementPresent(spinnerLoading);
+        WebUI.waitForElementNotPresent(spinnerLoading);
+    }
 }

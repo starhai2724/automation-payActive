@@ -21,6 +21,8 @@ import org.testng.Assert;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.time.Duration;
+import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 public class WebUI {
@@ -34,7 +36,7 @@ public class WebUI {
     }
 
     public static void verifyElementVisible(By by) {
-        WebDriverWait wait = new WebDriverWait(DriverManager.getDriver(), Duration.ofSeconds(10));
+        WebDriverWait wait = new WebDriverWait(DriverManager.getDriver(), Duration.ofSeconds(20));
         wait.until(ExpectedConditions.visibilityOfElementLocated(by));
         System.out.println("Verify " + by + " is displayed");
         Assert.assertTrue(DriverManager.getDriver().findElement(by).isDisplayed(), "Element not visible.");
@@ -220,6 +222,16 @@ public class WebUI {
             LogUtils.error("Element not exist. " + by.toString());
             Assert.fail("Element not exist. " + by);
 
+        }
+    }
+
+    public static void waitForElementNotPresent(By by) {
+        try {
+            WebDriverWait wait = new WebDriverWait(DriverManager.getDriver(), Duration.ofSeconds(EXPLICIT_TIMEOUT));
+            wait.until(driver -> driver.findElements(by).isEmpty());
+        } catch (Throwable error) {
+            LogUtils.error("Timeout waiting for the element Not Present. " + by.toString());
+            Assert.fail("Timeout waiting for the element Not Present. " + by.toString());
         }
     }
 
@@ -459,6 +471,49 @@ public class WebUI {
             }
         }
 
+    }
+
+    /* Refresh page */
+    public static void refreshPage() {
+        try {
+            // Refresh the current page
+            DriverManager.getDriver().navigate().refresh();
+
+            // Log the success of the refresh
+            LogUtils.info("Page refreshed successfully.");
+        } catch (Throwable error) {
+            // Log the error and fail silently without throwing an exception
+            LogUtils.error("Failed to refresh the page: " + error.getMessage());
+        }
+    }
+
+
+    /* ----------------------------------------------COMMON FUNCTION---------------------------------------------------------------*/
+    /* SORTING ORDER */
+    public static void sortAndAssert(By by, boolean isAscending) {
+        // Find all the WebElements based on the provided 'By' locator
+        List<WebElement> elements = DriverManager.getDriver().findElements(by);
+
+        // Get value from ebElement
+        List<String> uiValues = elements.stream().map(WebElement::getText)
+                .toList();
+
+        // Create list data to sort
+        List<String> sortedValues = new ArrayList<>(uiValues);
+
+        // Order as ASC or DESC
+        sortedValues.sort(isAscending ? Comparator.naturalOrder() : Comparator.reverseOrder());
+
+        // Verify results
+        if (isAscending) {
+            Assert.assertEquals(sortedValues, uiValues, "The list is not sorted in ascending order!");
+        } else {
+            Assert.assertEquals(sortedValues, uiValues, "The list is not sorted in descending order!");
+        }
+
+        // Log the original and sorted values
+        System.out.println("Original values: " + uiValues);
+        System.out.println("Sorted values: " + sortedValues);
     }
 
 }

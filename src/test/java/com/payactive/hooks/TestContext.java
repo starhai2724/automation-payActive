@@ -4,6 +4,7 @@ import com.payactive.driver.DriverFactory;
 import com.payactive.driver.DriverManager;
 import com.payactive.pages.*;
 import com.payactive.pages.cards.CardHolderPage;
+import com.payactive.pages.cards.FilterPage;
 import com.payactive.utils.LogUtils;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ThreadGuard;
@@ -13,6 +14,8 @@ public class TestContext {
     private WebDriver driver;
     private CommonPage commonPage;
     private LoginPage loginPage;
+    private FilterPage filterPage;
+    private CardHolderPage cardHolderPage;
 
     public TestContext() {
         ThreadGuard.protect(new DriverFactory().createDriver());
@@ -33,8 +36,18 @@ public class TestContext {
         return loginPage;
     }
 
+    public FilterPage getFilterPage() {
+        if (filterPage == null) {
+            filterPage = new FilterPage();
+        }
+        return filterPage;
+    }
+
     public CardHolderPage getCardHolderPage() {
-        return new CardHolderPage();
+        if (cardHolderPage == null) {
+            cardHolderPage = new CardHolderPage();
+        }
+        return cardHolderPage;
     }
 
     public WebDriver getDriver() {

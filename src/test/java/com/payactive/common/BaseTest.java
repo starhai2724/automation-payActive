@@ -2,6 +2,7 @@ package com.payactive.common;
 
 import com.payactive.constants.ConstantGlobal;
 import com.payactive.driver.DriverManager;
+import com.payactive.helpers.PropertiesHelpers;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -15,7 +16,7 @@ public class BaseTest {
     public static void createDriver() {
         WebDriver driver = setupBrowser("chrome");
         DriverManager.setDriver(driver);
-        //PropertiesHelpers.loadAllFiles();
+//        PropertiesHelpers.loadAllFiles();
     }
 
     public static void createDriver(String browserName) {

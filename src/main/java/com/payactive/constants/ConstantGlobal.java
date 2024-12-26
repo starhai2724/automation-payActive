@@ -27,6 +27,8 @@ public class ConstantGlobal {
 
     public final static String APPLICATION_PROPERTIES = "src/test/resources/application.properties";
     public final static String DEFAULT_ENVIRONMENT_PROPERTIES = "src/test/resources/environment.properties";
+    public final static String ENVIRONMENT_CONFIG = "environment.config";
+
 
 
 }

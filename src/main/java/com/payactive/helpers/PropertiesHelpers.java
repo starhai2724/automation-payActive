@@ -10,6 +10,7 @@ import java.util.LinkedList;
 import java.util.Properties;
 
 import static com.payactive.constants.ConstantGlobal.APP_ENV;
+import static com.payactive.constants.ConstantGlobal.ENVIRONMENT_CONFIG;
 
 public class PropertiesHelpers {
 
@@ -17,10 +18,10 @@ public class PropertiesHelpers {
     private static String linkFile;
     private static FileInputStream file;
     private static FileOutputStream out;
-    private static final String relPropertiesFilePathDefault = "src/test/resources/application.properties";
+    private static final String relPropertiesFilePathDefault = ConstantGlobal.APPLICATION_PROPERTIES;
 
     public static Properties loadAllFiles() {
-        String environmentConfig = System.getProperty("environment.config", ConstantGlobal.DEFAULT_ENVIRONMENT_PROPERTIES);
+        String environmentConfig = System.getProperty(ENVIRONMENT_CONFIG, ConstantGlobal.DEFAULT_ENVIRONMENT_PROPERTIES);
 
         LinkedList<String> files = new LinkedList<>();
         String applicationProperties = ConstantGlobal.APPLICATION_PROPERTIES;

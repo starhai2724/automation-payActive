@@ -7,11 +7,8 @@ import com.payactive.helpers.ExcelHelpers;
 import com.payactive.helpers.PropertiesHelpers;
 import com.payactive.models.Credentials;
 import io.cucumber.java.*;
-import io.cucumber.java.en.When;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
-
-import java.util.List;
 
 import static com.payactive.common.BaseTest.closeDriver;
 
@@ -21,7 +18,7 @@ public class CucumberHooks {
     public static void beforeAll() {
         System.out.println("================ beforeAll ================");
         PropertiesHelpers.loadAllFiles();
-        loadUser();
+        loadDataTest();
     }
 
     @AfterAll
@@ -31,12 +28,12 @@ public class CucumberHooks {
         closeDriver();
     }
 
-    @Before
-    public void beforeScenario() {
-        System.out.println("================ beforeScenario ================");
-        //BaseTest.createDriver();
-        //Record video
-    }
+//    @Before
+//    public void beforeScenario() {
+//        System.out.println("================ beforeScenario ================");
+//        //BaseTest.createDriver();
+//        //Record video
+//    }
 
     @After
     public void afterScenario(Scenario scenario) {
@@ -63,13 +60,23 @@ public class CucumberHooks {
         }
     }
 
+    private static void loadDataTest() {
+        if (DataCommon.credentialsList.isEmpty()) {
+            ExcelHelpers excelHelpers = new ExcelHelpers();
+            excelHelpers.setExcelFile(ConstantGlobal.TEST_DATA, "Login");
+            Credentials credentials = new Credentials();
+            credentials.setUsername(excelHelpers.getCellData("USERNAME", 1));
+            credentials.setPassword(excelHelpers.getCellData("PASSWORD", 1));
+            DataCommon.credentialsList.add(credentials);
 
-    private static void loadUser() {
-        ExcelHelpers excelHelpers = new ExcelHelpers();
-        excelHelpers.setExcelFile(ConstantGlobal.TEST_DATA, "Login");
-        Credentials credentials = new Credentials();
-        credentials.setUsername(excelHelpers.getCellData("USERNAME", 1));
-        credentials.setPassword(excelHelpers.getCellData("PASSWORD", 1));
-        DataCommon.credentialsList.add(credentials);
+            // get filter data test
+            excelHelpers.setExcelFile(ConstantGlobal.TEST_DATA, "Filter");
+
+            DataCommon.FILTER.FILTER_DATA.put("EmployeeName", excelHelpers.getCellData("EmployeeName", 1));
+            DataCommon.FILTER.FILTER_DATA.put("EmployeeId", excelHelpers.getCellData("EmployeeId", 1));
+            DataCommon.FILTER.FILTER_DATA.put("Departments", excelHelpers.getCellData("Departments", 1));
+            DataCommon.FILTER.FILTER_DATA.put("CardStatus", excelHelpers.getCellData("CardStatus", 1));
+            DataCommon.FILTER.FILTER_DATA.put("CardType", excelHelpers.getCellData("CardType", 1));
+        }
     }
 }
