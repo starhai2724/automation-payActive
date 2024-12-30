@@ -6,7 +6,8 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 @CucumberOptions(
-        features = "src/test/resources/features/pay-active/card-holders/",
+//        features = "src/test/resources/features/pay-active/cards/load-history",
+        features = "src/test/resources/features/pay-active/cards",
         glue = {"com.payactive.stepdefinitions",
                 "com.payactive.common",
                 "com.payactive.hooks"
@@ -20,7 +21,7 @@ import org.testng.annotations.Test;
         }
 )
 @Test
-public class TestRunnerCardHolder extends AbstractTestNGCucumberTests {
+public class TestRunnerCard extends AbstractTestNGCucumberTests {
     //Parallel Execution Scenario
     @Override
     @DataProvider(parallel = false)

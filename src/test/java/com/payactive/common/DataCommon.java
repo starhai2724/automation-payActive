@@ -11,7 +11,8 @@ public class DataCommon {
     public static List<Credentials> credentialsList = new ArrayList<>();
 
     public static class FILTER {
-        public static Map<String, String> FILTER_DATA = new HashMap<>();
-    }
+        public static Map<String, String> CARD_HOLDER_FILTER_DATA = new HashMap<>();
 
+        public static Map<String, String> LOAD_HISTORY_FILTER_DATA = new HashMap<>();
+    }
 }

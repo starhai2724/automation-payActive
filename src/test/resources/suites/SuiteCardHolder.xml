@@ -3,7 +3,7 @@
 <suite name="All Test Suite">
     <test name="Run Gherkin">
         <classes>
-            <class name="com.payactive.runners.TestRunnerCardHolder"/>
+            <class name="com.payactive.runners.TestRunnerCard"/>
         </classes>
     </test>
 </suite>

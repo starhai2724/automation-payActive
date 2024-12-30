@@ -69,14 +69,25 @@ public class CucumberHooks {
             credentials.setPassword(excelHelpers.getCellData("PASSWORD", 1));
             DataCommon.credentialsList.add(credentials);
 
-            // get filter data test
-            excelHelpers.setExcelFile(ConstantGlobal.TEST_DATA, "Filter");
+            // get filter data test in cardholder
+            excelHelpers.setExcelFile(ConstantGlobal.TEST_DATA, "CardHolderFilter");
 
-            DataCommon.FILTER.FILTER_DATA.put("EmployeeName", excelHelpers.getCellData("EmployeeName", 1));
-            DataCommon.FILTER.FILTER_DATA.put("EmployeeId", excelHelpers.getCellData("EmployeeId", 1));
-            DataCommon.FILTER.FILTER_DATA.put("Departments", excelHelpers.getCellData("Departments", 1));
-            DataCommon.FILTER.FILTER_DATA.put("CardStatus", excelHelpers.getCellData("CardStatus", 1));
-            DataCommon.FILTER.FILTER_DATA.put("CardType", excelHelpers.getCellData("CardType", 1));
+            DataCommon.FILTER.CARD_HOLDER_FILTER_DATA.put("EmployeeName", excelHelpers.getCellData("EmployeeName", 1));
+            DataCommon.FILTER.CARD_HOLDER_FILTER_DATA.put("EmployeeId", excelHelpers.getCellData("EmployeeId", 1));
+            DataCommon.FILTER.CARD_HOLDER_FILTER_DATA.put("Department", excelHelpers.getCellData("Department", 1));
+            DataCommon.FILTER.CARD_HOLDER_FILTER_DATA.put("CardStatus", excelHelpers.getCellData("CardStatus", 1));
+            DataCommon.FILTER.CARD_HOLDER_FILTER_DATA.put("CardType", excelHelpers.getCellData("CardType", 1));
+
+
+            // get filter data test in load history
+            excelHelpers.setExcelFile(ConstantGlobal.TEST_DATA, "LoadHistoryFilter");
+
+            DataCommon.FILTER.LOAD_HISTORY_FILTER_DATA.put("EmployeeName", excelHelpers.getCellData("EmployeeName", 1));
+            DataCommon.FILTER.LOAD_HISTORY_FILTER_DATA.put("EmployeeId", excelHelpers.getCellData("EmployeeId", 1));
+            DataCommon.FILTER.LOAD_HISTORY_FILTER_DATA.put("Department", excelHelpers.getCellData("Department", 1));
+            DataCommon.FILTER.LOAD_HISTORY_FILTER_DATA.put("Last4Digits", excelHelpers.getCellData("Last4Digits", 1));
+
+
         }
     }
 }
